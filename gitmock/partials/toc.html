@@ -1,0 +1,15 @@
+{% if toc %}
+<button aria-controls="tocContents" aria-expanded="false" class="btn btn-link link-dark p-md-0 mb-2 mb-md-0 text-decoration-none bd-toc-toggle d-md-none" data-bs-target="#tocContents" data-bs-toggle="collapse" type="button">
+    On this page
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+    </svg>
+</button>
+<strong class="d-none d-md-block h6 my-2">
+On this page
+</strong>
+<hr class="d-none d-md-block my-2"/>
+<div class="collapse bd-toc-collapse" id="tocContents">
+{{ toc | safe }}
+</div>
+{% endif %}

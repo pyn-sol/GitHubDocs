@@ -1,0 +1,10 @@
+fastapi
+jinja2
+deta
+python-multipart
+python-dotenv
+pygithub
+markdown
+inline-example
+rubberdoc
+docutils

@@ -1,0 +1,24 @@
+<nav aria-label="Main navigation" class="container-fluid bd-gutter flex-wrap flex-lg-nowrap justify-content-end">
+
+    <div class="site-title-mobile flex-grow-1">
+        {% include 'gitmock/partials/site_title.html' %}
+    </div>
+
+
+    <form class="d-flex bd-search header-search" role="search" action="/{{owner}}/{{repo}}/githubdocs_search" method="post">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search bd-search-icon" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        </svg>
+        <input class="form-control me-2" type="search" placeholder="Search {{owner}}/{{repo}}" aria-label="Search" id="q" name="q">
+        
+    </form>
+
+    <div class="bd-navbar-toggle">
+        <button aria-controls="bdSidebar" aria-label="Toggle docs navigation" class="navbar-toggler p-2" data-bs-target="#bdSidebar" data-bs-toggle="offcanvas" type="button">
+         <svg class="bi" fill="currentColor" height="24" viewbox="0 0 16 16" width="24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" fill-rule="evenodd">
+          </path>
+         </svg>
+        </button>
+    </div>
+   </nav>

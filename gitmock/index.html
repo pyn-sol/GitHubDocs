@@ -1,0 +1,45 @@
+<html lang="en">
+ <head>
+  {% block site_meta %}
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <title>{{owner}}/{{repo}} Docs</title>
+      <meta name="generator" content="GITHUB_DOCS">
+  {% endblock %}
+  <link href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" rel="stylesheet"/>
+  <link href="{{ '/gitmock/assets/5.2/dist/css/variables.css' }}" rel="stylesheet"/>
+  <link href="{{ '/gitmock/assets/5.2/dist/css/bootstrap.min.css'}}" rel="stylesheet"/>
+  <link href="{{ '/gitmock/assets/5.2/assets/css/docs.css'}}" rel="stylesheet"/>
+ </head>
+ <body>
+  {% include '/gitmock/assets/5.2/assets/img/svgdefs.html' %}
+
+  <header class="bd-header navbar navbar-expand-lg bd-navbar sticky-top">
+    {% include 'gitmock/partials/header.html' %}
+  </header>
+  <div class="container-fluid bd-layout">
+    <aside class="bd-sidebar thin-scrollbar">
+      {% include 'gitmock/partials/nav.html' %}
+    </aside>
+    <main class="bd-main order-1">     
+      <div class="bd-toc mt-3 mb-5 my-lg-0 ps-xl-3 mb-lg-5 thin-scrollbar">
+        {% include 'gitmock/partials/toc.html' %}
+      </div>
+      <div class="bd-content" data-bs-spy="scroll" data-bs-target="#TableOfContents">
+        {{ content | safe }}
+      </div>
+    </main>
+  </div>
+  {% include 'gitmock/partials/footer.html' %}
+  <script src="{{ '/gitmock/assets/5.2/dist/js/bootstrap.bundle.min.js' }}">
+  </script>
+  <script src="{{ '/gitmock/assets/5.2/assets/js/docs.min.js' }}">
+  </script>
+  <script>
+    let collapses = document.querySelectorAll('.collapse:has( .nav-active)');
+    for (let i = 0; i < collapses.length; i++) {
+      collapses[i].previousElementSibling.click();
+    }
+  </script>
+ </body>
+</html>

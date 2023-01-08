@@ -1,0 +1,18 @@
+Issues:
+- \__init__ looks weird in TOC  (doesn't happen on local...)
+- check out psf/requests code. Something breaks the code block on tab. Can we support this?
+- some repos disable the left column navigation, need more research on this
+- on authorization() redirect, we always go to index - can we go back to where we came from?
+
+Features:
+- notify when code copied (toast?)
+- add more robust support for .rst
+- button to view raw code file for each page
+- allow manual triggering of light/dark mode (currently system default)
+
+Style Improvements:
+- style admonitions better
+- there's a little bit of wiggle in content on mobile
+- codeblocks in light-mode could be more visually appealing
+- on toc link click, class label gets shifted down into method name
+- Repo Search needs a style overhaul

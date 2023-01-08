@@ -1,0 +1,36 @@
+{% macro render(nav_title, nav_item, level) %}
+{% set nav_expanded = 'false' %}
+{% if nav_title in (request.url | tostr + "||" + owner + "/" + repo) | rembase %}
+    {% set nav_expanded = 'false' %}
+{% endif %}
+
+    {% if nav_item | isdict %}
+
+        <li>
+            {% set nt_id = nav_title.replace('.', '').replace(' ', '_') %}
+            <button aria-expanded="{{ nav_expanded }}" class="btn bd-links-link d-inline-flex align-items-center justify-content-between rounded{{' collapsed' if nav_expanded == 'false' else ''}}" data-bs-target="#{{nt_id}}-collapse" data-bs-toggle="collapse">
+                {{ nav_title }} 
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                </svg>
+
+            </button>
+            <div class="collapse{{' show' if nav_expanded == 'true' else ''}}" id="{{nt_id}}-collapse">
+                <ul class="list-unstyled fw-normal pb-2">
+                {% for nav_title2, nav_item2 in nav_item.items() %}
+                    {{ render(nav_title2, nav_item2, level + 1) }}
+                {% endfor %}
+                </ul>
+            </div>
+        </li>
+    {% else %}
+        <li>
+        <a href="/{{owner}}/{{repo}}/{{ nav_item }}" class="bd-links-link d-inline-block rounded{{ ' nav-active' if nav_item in request.url | tostr else ''}}">
+            {{ nav_title }}
+        </a>
+        </li>
+    {% endif %}
+{% endmacro %}
+{{ render(nav_title, nav_item, level) }}
+  

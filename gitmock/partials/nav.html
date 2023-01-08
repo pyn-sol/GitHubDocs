@@ -1,0 +1,29 @@
+<div aria-labelledby="bdSidebarOffcanvasLabel" class="offcanvas-lg offcanvas-start" id="bdSidebar" tabindex="-1">
+    <div class="offcanvas-header border-bottom">
+    <div class="offcanvas-title" id="bdSidebarOffcanvasLabel">
+        {% include 'gitmock/partials/site_title.html' %}
+    </div>
+    <button aria-label="Close" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#bdSidebar" type="button">
+    </button>
+    </div>
+    <div class="offcanvas-body">
+    <nav aria-label="Docs navigation" class="bd-links w-100" id="bd-docs-nav">
+    <div class="offcanvas-body-title">
+        {% include 'gitmock/partials/site_title.html' %}
+    </div>
+    <form class="d-flex bd-search sidebar-search" role="search" action="/{{owner}}/{{repo}}/githubdocs_search" method="post">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search bd-search-icon" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        </svg>
+        <input class="form-control me-2" type="search" placeholder="Search {{owner}}/{{repo}}" aria-label="Search" id="q" name="q">
+        
+    </form>
+    <ul class="bd-links-nav list-unstyled mb-0 pb-3 pb-md-2 mt-3">
+        {% for nav_title, nav_item in nav.items() %}
+            {% set level = 0 %}
+            {% include 'gitmock/partials/nav_section.html' %}
+        {% endfor %}
+    </ul>
+    </nav>
+    </div>
+</div>
